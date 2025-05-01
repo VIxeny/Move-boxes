@@ -7,20 +7,22 @@ WidthOfScreen = love.graphics.getWidth()
 HeightOfScreen = love.graphics.getHeight()
 
 require("menu")
+require("playerlogic")
 LoadVarsMenu(WidthOfScreen, HeightOfScreen)
 
 local wall = 0
 local box = 1
 local bfin = 2
-local player = 3
+local player1 = 3
 local tile = 4
 test_level = {
     {wall, wall, wall,wall},
-    {wall, bfin, player, wall},
+    {wall, bfin, player1, wall},
     {wall, box, tile, wall},
     {wall, tile, tile, wall},
     {wall, wall, wall, wall}
 }
+LoadVarsLevel(test_level)
 
 function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest")
@@ -59,8 +61,5 @@ function love.draw()
             end 
         end
     end
-
-    DrawMenu()
-
 end
 
