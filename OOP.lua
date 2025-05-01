@@ -16,7 +16,7 @@ function Class:new()
         return instance
     end
 
-    function newClass:extends(parentClass)
+    function newClass.extends(parentClass)
         setmetatable(newClass, { __index = parentClass })
         return newClass
     end
