@@ -1,11 +1,6 @@
-----@param num number # The input number
-----@return number # The same number is returned
 
-function LoadVarsMenu(w, h)
-    WidthOfScreen, HeightOfScreen = w, h
-end
 
-local buttonPrototype = {x = 0, y = 0, w = 100, h = 30, text = "", color = {1, 1, 1}}
+local buttonPrototype = {x = 0, y = 0, w = 200, h = 40, text = "text"}
 
 ---@param x number? 
 ---@param y number? 
@@ -24,7 +19,10 @@ local localScreenButton = CreateButton(WidthOfScreen/2, HeightOfScreen/2 + 50)
 local buttons = {singlePlayerButton, localScreenButton}
 
 function DrawButton(button)
+    love.graphics.setColor(1, 1, 1)
     love.graphics.rectangle("fill", button.x - button.w/2, button.y - button.h/2, button.w, button.h)
+    love.graphics.setColor(0, 0, 0)
+    love.graphics.printf(button.text, button.x - button.w/2, button.y - button.h/2 - 5, button.w, "center")
 end
 
 function DrawMenu()

@@ -5,9 +5,10 @@ end
 
 WidthOfScreen = love.graphics.getWidth()
 HeightOfScreen = love.graphics.getHeight()
+MyFont = love.graphics.newFont("WANTED.ttf", 50)
+love.graphics.setFont(MyFont)
 
 require("menu")
-LoadVarsMenu(WidthOfScreen, HeightOfScreen)
 current_level = test_level --сделать логику смены уровня
 wall = 1
 box = 2
@@ -33,7 +34,7 @@ function love.load()
         
     }
 
-
+    
     scale = 5
     tiles_width = 16 * scale
     tiles_height = 16 * scale
@@ -66,10 +67,12 @@ end
 
 
 function love.draw()
+    love.graphics.setColor(1, 1, 1)
     for i=1,#test_level do
         for j=1,#test_level[i] do
             love.graphics.draw(objects[test_level[i][j]], j*tiles_width, i*tiles_height, 0, scale, scale)
         end
     end
+    --DrawMenu()
 end
 
