@@ -5,7 +5,7 @@ end
 
 WidthOfScreen = love.graphics.getWidth()
 HeightOfScreen = love.graphics.getHeight()
-MyFont = love.graphics.newFont("WANTED.ttf", 50)
+MyFont = love.graphics.newFont("PixelizerBold.ttf", 50)
 love.graphics.setFont(MyFont)
 
 require("menu")
@@ -57,7 +57,9 @@ function MovePlayer(direction)
     --сделать движение
 end
 
+--Не забыть включить DrawMenu при включении UpdateMenu
 function love.update()
+    --UpdateMenu()
 --    if love.keypressed(w) then
 --        if  canMove(current_level,w) == true then
 --            MovePlayer(up)
@@ -65,7 +67,7 @@ function love.update()
 --    end
 end
 
-
+--Не забыть включить UpdateMenu при включении DrawMenu
 function love.draw()
     love.graphics.setColor(1, 1, 1)
     for i=1,#test_level do
