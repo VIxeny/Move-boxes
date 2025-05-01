@@ -7,14 +7,13 @@ WidthOfScreen = love.graphics.getWidth()
 HeightOfScreen = love.graphics.getHeight()
 
 require("menu")
-require("playerlogic")
 LoadVarsMenu(WidthOfScreen, HeightOfScreen)
-
-local wall = 1
-local box = 2
-local bfin = 3
-local player1 = 4
-local tile = 5
+current_level = test_level --сделать логику смены уровня
+wall = 1
+box = 2
+bfin = 3
+player1 = 4
+tile = 5
 test_level = {
     {wall, wall, wall,wall},
     {wall, bfin, player1, wall},
@@ -22,7 +21,6 @@ test_level = {
     {wall, tile, tile, wall},
     {wall, wall, wall, wall}
 }
-LoadVarsLevel(test_level)
 
 function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest")
@@ -41,9 +39,31 @@ function love.load()
     tiles_height = 16 * scale
 end
 
-function love.update()
-    
+-- оптимизация с "player1 index", то есть, сразу импортировать где игрок в таблице?
+function canMove(level,key)
+    for i=1,#level do
+        for j=1,#level do
+            if level[i][j] == player1 then
+                
+                -- сделать проверку на соседние клетки в стиле (если key == w then проверить что сверху, если можно идти, переместить туда игрока)
+
+
+            end
+        end
+    end
 end
+function MovePlayer(direction)
+    --сделать движение
+end
+
+function love.update()
+--    if love.keypressed(w) then
+--        if  canMove(current_level,w) == true then
+--            MovePlayer(up)
+--        end
+--    end
+end
+
 
 function love.draw()
     for i=1,#test_level do
