@@ -11,9 +11,11 @@ local bfin = 2
 local player = 3
 local tile = 4
 test_level = {
-    {wall,wall,wall},
-    {wall, box, wall},
-    {wall,wall,wall}
+    {wall, wall, wall,wall},
+    {wall, bfin, player, wall},
+    {wall, box, tile, wall},
+    {wall, tile, tile, wall},
+    {wall, wall, wall, wall}
 }
 
 function love.load()
@@ -41,6 +43,15 @@ function love.draw()
             end 
             if test_level[i][j] == box then
                 love.graphics.draw(boxi, j*tiles_width, i*tiles_height, 0, scale, scale)
+            end 
+            if test_level[i][j] == bfin then
+                love.graphics.draw(bfini, j*tiles_width, i*tiles_height, 0, scale, scale)
+            end 
+            if test_level[i][j] == tile then
+                love.graphics.draw(tilei, j*tiles_width, i*tiles_height, 0, scale, scale)
+            end 
+            if test_level[i][j] == player then
+                love.graphics.draw(playeri, j*tiles_width, i*tiles_height, 0, scale, scale)
             end 
         end
     end
