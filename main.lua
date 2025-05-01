@@ -5,6 +5,10 @@ end
 
 WidthOfScreen = love.graphics.getWidth()
 HeightOfScreen = love.graphics.getHeight()
+
+require("menu")
+LoadVarsMenu(WidthOfScreen, HeightOfScreen)
+
 local wall = 0
 local box = 1
 local bfin = 2
@@ -55,6 +59,8 @@ function love.draw()
             end 
         end
     end
+
+    DrawMenu()
 
 end
 
