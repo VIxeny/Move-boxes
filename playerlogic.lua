@@ -1,4 +1,5 @@
 ---@diagnostic disable: lowercase-global
+pressedDirection = nil
 level = current_level
 tile_tables = tiles
 playerOnePos = {}
@@ -6,6 +7,20 @@ mup = false
 mdown = false
 mleft = false
 mright = false
+
+directions = {
+    up = {0, 1},
+    down = {0, -1},
+    left = {-1, 0},
+    right = {1, 0}
+}
+dkeys = {
+    w = true,
+    s = true,
+    a = true,
+    d = true}
+
+
 --playerTwoPos = {}
 function getPlayerOnePos(level)
     for i = 1,#level do
@@ -28,13 +43,20 @@ end
 --end
 
 -- таблица движения для переменной "direction"? типо up = {0,1} down = {0,-1} и т.д.
-function canMove(level)
+function canMove(level, direction)
     getPlayerOnePos(level)
-    if playerOnePos + null ~= wall then
-            
+    if playerOnePos + direction[pressedDirection] ~= tile_tables.wall then
+        love.graphics.print("Wall not found", 10, 10)
     end
 end
 
 function MovePlayer(direction)
     --сделать движение
+end
+
+function love.keypressed(key)
+    if dkeys[key] then
+        pressedDirection = key
+        canMove(level,pressedDirection)
+    end
 end

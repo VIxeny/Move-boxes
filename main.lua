@@ -43,12 +43,12 @@ end
 
 --Не забыть включить UpdateMenu при включении DrawMenu
 function love.draw()
-    love.graphics.setColor(1, 1, 1)
-    for i=1,#test_level do
-        for j=1,#test_level[i] do
-            love.graphics.draw(objects[test_level[i][j]], j*tiles_width, i*tiles_height, 0, scale, scale)
-        end
-    end
+    --love.graphics.setColor(1, 1, 1)
+    --for i=1,#test_level do
+        --for j=1,#test_level[i] do
+            --love.graphics.draw(objects[test_level[i][j]], j*tiles_width, i*tiles_height, 0, scale, scale)
+        --end
+    --end
     --DrawMenu()
 end
 
