@@ -8,63 +8,37 @@ HeightOfScreen = love.graphics.getHeight()
 MyFont = love.graphics.newFont("PixelizerBold.ttf", 50)
 love.graphics.setFont(MyFont)
 
+require("playerlogic")
 require("menu")
 current_level = test_level --сделать логику смены уровня
-wall = 1
-box = 2
-bfin = 3
-player1 = 4
-tile = 5
+tiles = {wall =1, box = 2, bfin =3, tile =4, player1 =5, player2 =6}
 test_level = {
-    {wall, wall, wall,wall},
-    {wall, bfin, player1, wall},
-    {wall, box, tile, wall},
-    {wall, tile, tile, wall},
-    {wall, wall, wall, wall}
+    {tiles.wall, tiles.wall, tiles.wall,tiles.wall},
+    {tiles.wall, tiles.bfin, tiles.player1, tiles.wall},
+    {tiles.wall, tiles.box, tiles.tile, tiles.wall},
+    {tiles.wall, tiles.tile, tiles.tile, tiles.wall},
+    {tiles.wall, tiles.wall, tiles.wall, tiles.wall}
 }
 
 function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest")
     objects = {
-        love.graphics.newImage("sprites/wall.png"), -- wall image
+        love.graphics.newImage("sprites/wall.png"),
         love.graphics.newImage("sprites/box.png"),
-        love.graphics.newImage("sprites/box-finnish.png"),  --bfin - box finnish
-        love.graphics.newImage("sprites/player1.png"),
+        love.graphics.newImage("sprites/box-finnish.png"),
         love.graphics.newImage("sprites/tile.png"),
-        
+        love.graphics.newImage("sprites/player1.png"),
+        love.graphics.newImage("sprites/player1.png"),
     }
 
-    
     scale = 5
     tiles_width = 16 * scale
     tiles_height = 16 * scale
 end
 
--- оптимизация с "player1 index", то есть, сразу импортировать где игрок в таблице?
-function canMove(level,key)
-    for i=1,#level do
-        for j=1,#level do
-            if level[i][j] == player1 then
-                
-                -- сделать проверку на соседние клетки в стиле (если key == w then проверить что сверху, если можно идти, переместить туда игрока)
-
-
-            end
-        end
-    end
-end
-function MovePlayer(direction)
-    --сделать движение
-end
-
 --Не забыть включить DrawMenu при включении UpdateMenu
 function love.update()
-    --UpdateMenu()
---    if love.keypressed(w) then
---        if  canMove(current_level,w) == true then
---            MovePlayer(up)
---        end
---    end
+
 end
 
 --Не забыть включить UpdateMenu при включении DrawMenu
