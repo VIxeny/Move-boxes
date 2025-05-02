@@ -1,6 +1,6 @@
 ---@diagnostic disable: lowercase-global
 pressedDirection = nil
-level = current_level
+clevel = current_level
 tile_tables = tiles
 playerOnePos = {}
 mup = false
@@ -58,6 +58,6 @@ end
 function Test(key)
     if dkeys[key] then
         pressedDirection = key
-        canMove(level,pressedDirection)
+        canMove(clevel,pressedDirection)
     end
 end
