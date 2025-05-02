@@ -55,7 +55,7 @@ function MovePlayer(direction)
     --сделать движение
 end
 
-function love.keypressed(key)
+function Test(key)
     if dkeys[key] then
         pressedDirection = key
         canMove(level,pressedDirection)

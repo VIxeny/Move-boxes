@@ -38,7 +38,12 @@ end
 
 --Не забыть включить DrawMenu при включении UpdateMenu
 function love.update()
+    
+end
 
+function love.keypressed(key)
+    PressedKeyUI(key)
+    Test(key)
 end
 
 --Не забыть включить UpdateMenu при включении DrawMenu
