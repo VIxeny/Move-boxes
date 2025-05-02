@@ -46,7 +46,7 @@ end
 function canMove(level, direction)
     getPlayerOnePos(level)
     local newX = playerOnePos.x + directions[pressedDirection].x -- я слишком туп, помогай пожалустаааааа (если что, я собираюсь не пользоваться ИИ до конца)
-    local newY = playerOnePos.y + directions[pressedDirection].y
+    local newY = playerOnePos.y + directions[pressedDirection].y -- на линии 49 индекс nil но я даже не знаю что из этого нил, я тупой блять
 
     if level[newX] and level[newX][newY] and level[newX][newY] ~= tile_tables.wall then
         love.graphics.print("Wall not found", 10, 10)
