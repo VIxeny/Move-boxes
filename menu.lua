@@ -127,7 +127,7 @@ function UpdateMenu()
     end
 end
 
-function love.keypressed(key)
+function PressedKeyUI(key)
     if fieldsActive and key == "backspace" then
         local byteOffset = utf8.offset(fieldsActive[1].text, -1)
         if byteOffset then

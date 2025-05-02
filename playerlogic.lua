@@ -18,7 +18,8 @@ dkeys = {
     w = true,
     s = true,
     a = true,
-    d = true}
+    d = true
+}
 
 
 --playerTwoPos = {}
