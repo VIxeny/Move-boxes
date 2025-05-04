@@ -1,18 +1,18 @@
 ---@diagnostic disable: lowercase-global
 pressedDirection = nil
-level = current_level
+clevel = current_level
 tile_tables = tiles
-playerOnePos = {}
+playerOnePos = {x = 0, y = 0}
 mup = false
 mdown = false
 mleft = false
 mright = false
 
 directions = {
-    up = {0, 1},
-    down = {0, -1},
-    left = {-1, 0},
-    right = {1, 0}
+    up = {x =0, y= 1},
+    down = {x =0,  y=-1},
+    left = {x =-1, y= 0},
+    right = {x =1, y= 0}
 }
 dkeys = {
     w = true,
@@ -43,11 +43,15 @@ end
 --    end
 --end
 
--- таблица движения для переменной "direction"? типо up = {0,1} down = {0,-1} и т.д.
 function canMove(level, direction)
     getPlayerOnePos(level)
-    if playerOnePos + direction[pressedDirection] ~= tile_tables.wall then
+    local newX = playerOnePos.x + directions[pressedDirection].x -- я слишком туп, помогай пожалустаааааа (если что, я собираюсь не пользоваться ИИ до конца)
+    local newY = playerOnePos.y + directions[pressedDirection].y -- на линии 49 индекс nil но я даже не знаю что из этого нил, я тупой блять
+
+    if level[newX] and level[newX][newY] and level[newX][newY] ~= tile_tables.wall then
         love.graphics.print("Wall not found", 10, 10)
+    else
+        love.graphics.print("Wall found", 10, 10)
     end
 end
 
@@ -58,6 +62,6 @@ end
 function Test(key)
     if dkeys[key] then
         pressedDirection = key
-        canMove(level,pressedDirection)
+        canMove(clevel,pressedDirection)
     end
 end

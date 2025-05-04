@@ -20,7 +20,7 @@ test_level = {
     {tiles.wall, tiles.tile, tiles.tile, tiles.wall},
     {tiles.wall, tiles.wall, tiles.wall, tiles.wall}
 }
-
+current_level = test_level
 function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest")
     objects = {
@@ -37,6 +37,7 @@ function love.load()
     tiles_height = 16 * scale
 end
 
+require("playerlogic")
 --Не забыть включить DrawMenu при включении UpdateMenu
 function love.update()
     UpdateUI()
