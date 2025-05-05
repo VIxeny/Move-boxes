@@ -36,15 +36,28 @@ local backButton = UI.Button.new{
     end
 }
 
+
 local singlePlayerMenu = {
     UI.Button.new{
-        x = WidthOfScreen/2 - 250, y = HeightOfScreen/2 + 70, w = 50, h = 50, text = UI.Text.new{text = "1", alignH = "center", y = 4}
+        x = WidthOfScreen/2 - 250, y = HeightOfScreen/2 + 70, w = 50, h = 50, text = UI.Text.new{text = "1", alignH = "center", y = 4},
+        trigger = function() 
+            ManageUI({menu.singlePlayerMenu}, {})
+            LoadLevel(1)
+        end
     },
     UI.Button.new{
-        x = WidthOfScreen/2 - 150, y = HeightOfScreen/2 + 70, w = 50, h = 50, text = UI.Text.new{text = "2", alignH = "center", y = 4}
+        x = WidthOfScreen/2 - 150, y = HeightOfScreen/2 + 70, w = 50, h = 50, text = UI.Text.new{text = "2", alignH = "center", y = 4},
+        trigger = function() 
+            ManageUI({menu.singlePlayerMenu}, {})
+            LoadLevel(2)
+        end
     },
     UI.Button.new{
-        x = WidthOfScreen/2 - 50, y = HeightOfScreen/2 + 70, w = 50, h = 50, text = UI.Text.new{text = "3", alignH = "center", y = 4}
+        x = WidthOfScreen/2 - 50, y = HeightOfScreen/2 + 70, w = 50, h = 50, text = UI.Text.new{text = "3", alignH = "center", y = 4},
+        trigger = function() 
+            ManageUI({menu.singlePlayerMenu}, {})
+            LoadLevel(3)
+        end
     },
     UI.Button.new{
         x = WidthOfScreen/2 + 50, y = HeightOfScreen/2 + 70, w = 50, h = 50, text = UI.Text.new{text = "4", alignH = "center", y = 4}
