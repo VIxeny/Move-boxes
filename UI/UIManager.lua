@@ -10,10 +10,22 @@ local restartButton = UI.Button.new{
     end
 }
 
+TimerText = UI.Text.new{
+    x = WidthOfScreen/2 + 200, color = {1, 1, 1}
+}
+
+IqText = UI.Text.new{
+    x = WidthOfScreen/2 - 200, w = 400, y = HeightOfScreen/2 - 25, alignH = "center", color = {1, 1, 1}
+}
+
 function ManageUI(remove, add)
     ChangeActiveUI(remove, add)
-    if #ActiveUI == 0 then
-        ChangeActiveUI({}, {restartButton})
-    end
 end
 
+function ShowTimer()
+    ChangeActiveUI({mainMenu.firstScreen}, {TimerText, restartButton})
+end
+
+function ShowIQ()
+    ChangeActiveUI({TimerText, restartButton}, {IqText})
+end

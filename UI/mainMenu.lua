@@ -19,7 +19,10 @@ local menu
 
 local singlePlayerButton = UI.Button.new{
     x = WidthOfScreen/2 - 175, y = HeightOfScreen/2, w = 350, h = 50, text = UI.Text.new{text = "SINGLEPLAYER", alignH = "center", y = 4},
-    trigger = function() ManageUI({menu.firstScreen}, {menu.singlePlayerMenu}) end
+    trigger = function() 
+        ShowTimer()
+        LoadLevel(1)
+    end
 }
 local splitScreenButton = UI.Button.new{
     x = WidthOfScreen/2 - 175, y = HeightOfScreen/2 + 70, w = 350, h = 50, text = UI.Text.new{text = "SPLITSCREEN", alignH = "center", y = 4},

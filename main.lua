@@ -13,11 +13,18 @@ require("gameLogic")
 require("Levels")
 require("DisplayScene")
 
+IQ = 1000
+Timer = 0
+
 function love.load()
 
 end
 
-function love.update()
+function love.update(dt)
+    if CurrentLevel then
+        Timer = Timer + dt
+        TimerText.text = Timer - Timer % 0.01
+    end
     UpdateUI()
 end
 

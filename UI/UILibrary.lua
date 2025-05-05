@@ -169,7 +169,7 @@ function UpdateUI()
             currentElementHovered = nil
         end
         if not love.mouse.isDown(1) then
-            UpdateElements(ActiveUI) 
+            UpdateElements(ActiveUI)
         end
     end
 end
