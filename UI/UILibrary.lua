@@ -168,7 +168,9 @@ function UpdateUI()
             currentElementHovered.currentColor = currentElementHovered.color
             currentElementHovered = nil
         end
-        UpdateElements(ActiveUI)
+        if not love.mouse.isDown(1) then
+            UpdateElements(ActiveUI) 
+        end
     end
 end
 
@@ -198,6 +200,8 @@ end
 function UIon1Release()
     if currentElementSelected and currentElementSelected.isParent(UI.Button) then
         currentElementSelected.currentColor = currentElementSelected.color
+        currentElementSelected = nil
+    elseif currentElementSelected and not currentElementSelected.isParent(UI.TextField) then
         currentElementSelected = nil
     end
 end

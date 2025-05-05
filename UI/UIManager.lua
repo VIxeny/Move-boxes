@@ -1,6 +1,5 @@
 require "UI.UILibrary"
 local mainMenu = require "UI.mainMenu"
-print("XD")
 
 ActiveUI = {mainMenu.firstScreen}
 

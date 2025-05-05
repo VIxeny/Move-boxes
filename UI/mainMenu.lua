@@ -36,6 +36,13 @@ local backButton = UI.Button.new{
     end
 }
 
+local crossImage1 = UI.Image.new{
+    image = "UI/Cross.png", x = WidthOfScreen/2 - 175, y = HeightOfScreen/2 + 70
+}
+local crossImage2 = UI.Image.new{
+    image = "UI/Cross.png", x = WidthOfScreen/2 - 175, y = HeightOfScreen/2 + 140
+}
+
 
 local singlePlayerMenu = {
     UI.Button.new{
@@ -129,7 +136,7 @@ local joinMenu = {
 }
 
 menu = {
-    firstScreen = {singlePlayerButton, splitScreenButton, multiplayerButton},
+    firstScreen = {singlePlayerButton, splitScreenButton, multiplayerButton, crossImage1, crossImage2},
     singlePlayerMenu = singlePlayerMenu,
     splitScreenMenu = splitScreenMenu,
     multiplayerMenu = multiplayerMenu,
